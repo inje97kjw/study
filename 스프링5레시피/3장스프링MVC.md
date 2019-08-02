@@ -24,3 +24,24 @@
 - `HandlerInterceptorAdapter` 인터페이스 구현해도됨
 - `WebMvcConfigurer` 인터페이스를 구현한 class에 `addInterceptors()` 오버라이드해 추가
 - `addPathPattern()`, `excludePathPatterns()` url 지정 가능 
+
+### 유저로케일
+- `LocaleResolver` 인터페이스를 구현한 로케일 리졸버가 식별함
+- `DispatcherServlet`가 감지할려면 빈 명을 `localeResolver`이라고 명명  `DispatcherServlet`당 하나만 등록 가능하다.
+- 세션으로 : `SessionLocaleResolver` accept-language 헤더로 기본로케일 결정, default 설정가능
+- 쿠키로 : `CookieLocaleResolver` accept-language 헤더로 기본로케일 결정, default 설정가능
+- 로케일변경 : 명시적으로 변경 가능하지만 `LocaleResolver.setLocale()` `LocaleChangeInterceptor` 핸들러 매핑에 적용 
+
+### 로케일별 메세지
+- `messageSource` 빈네임으로 명명
+- `ResourceBundleMessageSource` 구현테를 등록하면 basename이 message인 리소스 번들을 로드
+- message.properties,message_de.properties `de` 로케일 
+
+### 뷰
+- 뷰리졸버가 여러개인 경우 우선순위 `setOrder()` 를 지정해준다.
+
+###  ContentNeotiationViewResolver
+
+- 요청결로에 확장자가 있고 기본메디아 타입은 매치 되는 확장가가 없으면 HTTP Accept 해더를 활용
+
+ 
