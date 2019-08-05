@@ -42,6 +42,12 @@
 
 ###  ContentNeotiationViewResolver
 
-- 요청결로에 확장자가 있고 기본메디아 타입은 매치 되는 확장가가 없으면 HTTP Accept 해더를 활용
+- 요청별로에 확장자가 있고 기본메디아 타입은 매치 되는 확장가가 없으면 HTTP Accept 해더를 활용
+
+### 뷰에 예외 매핑
+
+- `HandlerExceptionResolver` 에 `SimplemappingExceptionResolver` 에 exception의 종료와 매핑핳ㄹ view 네임을 설정할수 있다.
+- `@ControllerAdvice` `@ExceptionHandler` 에 exception 을 지정할수 있다.
+
 
  
